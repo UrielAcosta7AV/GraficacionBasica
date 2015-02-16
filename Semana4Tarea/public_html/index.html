@@ -184,8 +184,9 @@ function mvPopMatrix() {
             -2.0, -2.0, 2.0,
              //2do Triangulo de abajo 
              2.0, -2.0, 2.0, //
-	     2.0, -2.0, -2.0, ///
-            -2.0, -2.0, -2.0////
+            -2.0, -2.0, -2.0,////
+	     2.0, -2.0, -2.0 ///
+           
 
         ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -261,10 +262,11 @@ function mvPopMatrix() {
              10.0, 0.0, 0.0,
              8.0,  2.0, 0.0,
 	     8.0, -2.0, 0.0,
+             6.0,  2.0, 0.0,
 	     6.0, -2.0, 0.0,
 	     4.0,  0.0, 0.0,
-	     8.0,  2.0, 0.0,
-	     6.0,  2.0, 0.0
+	     8.0,  2.0, 0.0
+	    
 			 		
         ];
         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
@@ -276,11 +278,11 @@ function mvPopMatrix() {
 		colors = []
 		for (var i=0; i < 7; i++) {
        var colors= [ 
-             1.0,0.0,0.0,1.0,
+             1.0,0.0,0.0,1.0,//rojo
              0.0,1.0,0.0,1.0,
              0.0,1.0,0.0,0.0,
              0.0,0.0,1.0,1.0,
-             1.0,0.0,0.0,1.0,
+             1.0,0.0,1.0,1.0,
              0.0,1.0,1.0,1.0,
              1.0,1.0,1.0,1.0
         ];
@@ -298,7 +300,7 @@ function mvPopMatrix() {
 		
         mat4.translate(mvMatrix, [-4, -2.0, -16.0]);
 		mvPushMatrix();
-        mat4.rotate(mvMatrix, degToRad(rTri), [0, 1, 0]);
+        mat4.rotate(mvMatrix, degToRad(rTri), [1, 0, 0]);
 		
 	  gl.bindBuffer(gl.ARRAY_BUFFER, triangleVertexPositionBuffer);
         gl.vertexAttribPointer(shaderProgram.vertexPositionAttribute, triangleVertexPositionBuffer.itemSize, gl.FLOAT, false, 0, 0);
@@ -321,7 +323,7 @@ function mvPopMatrix() {
 		mvPopMatrix();
 		
 		
-	mat4.translate(mvMatrix, [-11.0, 4.0, 0.0]);
+	mat4.translate(mvMatrix, [-11.0, 5.0, 0.0]);
  mvPushMatrix();
     mat4.rotate(mvMatrix, degToRad(rSquare), [1, 0, 0]);
 	gl.bindBuffer(gl.ARRAY_BUFFER, hexagonoVertexPositionBuffer);
